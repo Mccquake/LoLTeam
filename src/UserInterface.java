@@ -17,6 +17,7 @@ import javax.swing.JButton;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.Dimension;
 
 public class UserInterface {
 
@@ -40,7 +41,6 @@ public class UserInterface {
 
 	/**
 	 * Create the application.
-	 * @throws IOException 
 	 */
 	public UserInterface() {
 		initialize();
@@ -48,26 +48,26 @@ public class UserInterface {
 
 	/**
 	 * Initialize the contents of the frame.
-	 * @throws IOException 
 	 */
 	private void initialize() {
 		BufferedImage imgIcon = null, imgBaron = null, imgDragon = null, imgGolem = null, imgLizard = null, imgWolf = null, imgWraith = null;
 		try {
-			imgIcon = ImageIO.read(this.getClass().getResource("res/images/riotlogo.png"));
-			imgBaron = ImageIO.read(this.getClass().getResource("res/images/BaronNashor.png"));
-			imgDragon = ImageIO.read(this.getClass().getResource("res/images/Dragon.png"));
-			imgGolem = ImageIO.read(this.getClass().getResource("res/images/Golem.png"));
-			imgLizard = ImageIO.read(this.getClass().getResource("res/images/Lizard.png"));
-			imgWolf = ImageIO.read(this.getClass().getResource("res/images/Wolf.png"));
-			imgWraith = ImageIO.read(this.getClass().getResource("res/images/Wraith.png"));
+			imgIcon = ImageIO.read(this.getClass().getResource("/images/riotlogo.png"));
+			imgBaron = ImageIO.read(this.getClass().getResource("/images/BaronNashor.png"));
+			imgDragon = ImageIO.read(this.getClass().getResource("/images/Dragon.png"));
+			imgGolem = ImageIO.read(this.getClass().getResource("/images/Golem.png"));
+			imgLizard = ImageIO.read(this.getClass().getResource("/images/Lizard.png"));
+			imgWolf = ImageIO.read(this.getClass().getResource("/images/Wolf.png"));
+			imgWraith = ImageIO.read(this.getClass().getResource("/images/Wraith.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
 		frmLeagueOfLegends = new JFrame();
+		frmLeagueOfLegends.setResizable(false);
 		frmLeagueOfLegends.setTitle("League of Legends Timers / Team Composition");
 		frmLeagueOfLegends.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		frmLeagueOfLegends.setBounds(100, 100, 700, 600);
+		frmLeagueOfLegends.setBounds(100, 100, 670, 600);
 		frmLeagueOfLegends.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmLeagueOfLegends.setIconImage(imgIcon);
 		frmLeagueOfLegends.getContentPane().setLayout(new BorderLayout(0, 0));
@@ -80,13 +80,14 @@ public class UserInterface {
 		panelTimers.setBackground(Color.WHITE);
 		tabbedPane.addTab("Timers", null, panelTimers);
 		GridBagLayout gbl_panelTimers = new GridBagLayout();
-		gbl_panelTimers.columnWidths = new int[]{60, 89, 89, 89, 89, 89, 89, 0};
+		gbl_panelTimers.columnWidths = new int[]{80, 89, 89, 89, 89, 89, 89, 0};
 		gbl_panelTimers.rowHeights = new int[]{23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gbl_panelTimers.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_panelTimers.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panelTimers.setLayout(gbl_panelTimers);
 		
 		JButton btnBTeamBlue = new JButton(new ImageIcon(imgGolem));
+		btnBTeamBlue.setPreferredSize(new Dimension(64, 64));
 		btnBTeamBlue.setContentAreaFilled(false);
 		GridBagConstraints gbc_btnBTeamBlue = new GridBagConstraints();
 		gbc_btnBTeamBlue.anchor = GridBagConstraints.NORTHWEST;
@@ -96,6 +97,7 @@ public class UserInterface {
 		panelTimers.add(btnBTeamBlue, gbc_btnBTeamBlue);
 		
 		JButton btnBTeamRed = new JButton(new ImageIcon(imgLizard));
+		btnBTeamRed.setPreferredSize(new Dimension(64, 64));
 		btnBTeamRed.setContentAreaFilled(false);
 		GridBagConstraints gbc_btnBTeamRed = new GridBagConstraints();
 		gbc_btnBTeamRed.anchor = GridBagConstraints.NORTHWEST;
@@ -105,6 +107,7 @@ public class UserInterface {
 		panelTimers.add(btnBTeamRed, gbc_btnBTeamRed);
 		
 		JButton btnPTeamRed = new JButton(new ImageIcon(imgLizard));
+		btnPTeamRed.setPreferredSize(new Dimension(64, 64));
 		btnPTeamRed.setContentAreaFilled(false);
 		GridBagConstraints gbc_btnPTeamRed = new GridBagConstraints();
 		gbc_btnPTeamRed.insets = new Insets(0, 0, 5, 5);
@@ -113,6 +116,7 @@ public class UserInterface {
 		panelTimers.add(btnPTeamRed, gbc_btnPTeamRed);
 		
 		JButton btnPTeamBlue = new JButton(new ImageIcon(imgGolem));
+		btnPTeamBlue.setPreferredSize(new Dimension(64, 64));
 		btnPTeamBlue.setContentAreaFilled(false);
 		GridBagConstraints gbc_btnPTeamBlue = new GridBagConstraints();
 		gbc_btnPTeamBlue.insets = new Insets(0, 0, 5, 5);
@@ -121,6 +125,7 @@ public class UserInterface {
 		panelTimers.add(btnPTeamBlue, gbc_btnPTeamBlue);
 		
 		JButton btnDragon = new JButton(new ImageIcon(imgDragon));
+		btnDragon.setPreferredSize(new Dimension(64, 64));
 		btnDragon.setContentAreaFilled(false);
 		GridBagConstraints gbc_btnDragon = new GridBagConstraints();
 		gbc_btnDragon.anchor = GridBagConstraints.NORTHWEST;
@@ -130,6 +135,7 @@ public class UserInterface {
 		panelTimers.add(btnDragon, gbc_btnDragon);
 		
 		JButton btnBTeamWolf = new JButton(new ImageIcon(imgWolf));
+		btnBTeamWolf.setPreferredSize(new Dimension(64, 64));
 		btnBTeamWolf.setContentAreaFilled(false);
 		GridBagConstraints gbc_btnBTeamWolf = new GridBagConstraints();
 		gbc_btnBTeamWolf.insets = new Insets(0, 0, 5, 5);
@@ -138,6 +144,7 @@ public class UserInterface {
 		panelTimers.add(btnBTeamWolf, gbc_btnBTeamWolf);
 		
 		JButton btnPTeamWolf = new JButton(new ImageIcon(imgWolf));
+		btnPTeamWolf.setPreferredSize(new Dimension(64, 64));
 		btnPTeamWolf.setContentAreaFilled(false);
 		GridBagConstraints gbc_btnPTeamWolf = new GridBagConstraints();
 		gbc_btnPTeamWolf.insets = new Insets(0, 0, 5, 5);
@@ -146,6 +153,7 @@ public class UserInterface {
 		panelTimers.add(btnPTeamWolf, gbc_btnPTeamWolf);
 		
 		JButton btnBTeamWraith = new JButton(new ImageIcon(imgWraith));
+		btnBTeamWraith.setPreferredSize(new Dimension(64, 64));
 		btnBTeamWraith.setContentAreaFilled(false);
 		GridBagConstraints gbc_btnBTeamWraith = new GridBagConstraints();
 		gbc_btnBTeamWraith.anchor = GridBagConstraints.NORTHWEST;
@@ -155,6 +163,7 @@ public class UserInterface {
 		panelTimers.add(btnBTeamWraith, gbc_btnBTeamWraith);
 		
 		JButton btnBaron = new JButton(new ImageIcon(imgBaron));
+		btnBaron.setPreferredSize(new Dimension(64, 64));
 		btnBaron.setContentAreaFilled(false);
 		GridBagConstraints gbc_btnBaron = new GridBagConstraints();
 		gbc_btnBaron.anchor = GridBagConstraints.NORTHWEST;
@@ -164,7 +173,9 @@ public class UserInterface {
 		panelTimers.add(btnBaron, gbc_btnBaron);
 		
 		JButton btnPTeamWraith = new JButton(new ImageIcon(imgWraith));
-		btnPTeamWraith.setContentAreaFilled(false);
+		btnPTeamWraith.setPreferredSize(new Dimension(64, 64));
+		btnBTeamRed.setPreferredSize(new Dimension(64, 64));
+		btnBTeamRed.setContentAreaFilled(false);
 		GridBagConstraints gbc_btnPTeamWraith = new GridBagConstraints();
 		gbc_btnPTeamWraith.insets = new Insets(0, 0, 5, 5);
 		gbc_btnPTeamWraith.gridx = 5;
@@ -172,6 +183,7 @@ public class UserInterface {
 		panelTimers.add(btnPTeamWraith, gbc_btnPTeamWraith);
 		
 		JButton btnBTeamGolem = new JButton(new ImageIcon(imgGolem));
+		btnBTeamGolem.setPreferredSize(new Dimension(64, 64));
 		btnBTeamGolem.setContentAreaFilled(false);
 		GridBagConstraints gbc_btnBTeamGolem = new GridBagConstraints();
 		gbc_btnBTeamGolem.insets = new Insets(0, 0, 5, 5);
@@ -181,6 +193,7 @@ public class UserInterface {
 		panelTimers.add(btnBTeamGolem, gbc_btnBTeamGolem);
 		
 		JButton btnPTeamGolem = new JButton(new ImageIcon(imgGolem));
+		btnPTeamGolem.setPreferredSize(new Dimension(64, 64));
 		btnPTeamGolem.setContentAreaFilled(false);
 		GridBagConstraints gbc_btnPTeamGolem = new GridBagConstraints();
 		gbc_btnPTeamGolem.insets = new Insets(0, 0, 5, 5);

@@ -1,2 +1,6 @@
-Timer Splash x2 - Red/Purple. Combine into one, and do an outer edge glow.
 Team Comp Splash
+Itemiser Splash
+Timers Functionality
+Team Comp Functionality
+Item Builder Functionality
+About Page with Copyrights.
